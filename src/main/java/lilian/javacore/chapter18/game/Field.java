@@ -70,12 +70,9 @@ class GameLogic extends Field {
                 }
 
             }
-            if (iUserScore == 3) {
-                System.out.println("Поздравляю " + name + " " + "!" + " Ты выйграл эту игру.");
-                counter++;
-            }
-            if (iComScore == 3) {
-                System.out.println("К сожелению " + name + " " + "," + " Ты проиграл эту игру.");
+            if (iUserScore == 3 && iComScore == 3) {
+                System.out.println("Игра окончена! \n" + name +
+                                  iUserScore + " | " + iComScore + " Computer");
                 counter++;
             }
         }
