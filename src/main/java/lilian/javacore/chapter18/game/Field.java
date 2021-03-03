@@ -6,9 +6,16 @@ import java.util.Scanner;
 public class Field {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    int iComScore = 0;
-    int iUserScore = 0;
-    int counter = 0;
+    int iComScore;
+    int iUserScore;
+    int counter;
+
+
+    Field() {
+        iComScore = 0;
+        iUserScore = 0;
+        counter = 0;
+    }
 
 }
 
@@ -36,24 +43,28 @@ class GameLogic extends Field {
                     System.out.println("Компютер выбрал: Ножницы.");
                     System.out.println(name + "," + " поздравляю, ты выйграл этот раунд!");
                     iUserScore++;
-                    System.out.println("Счет по очкам: " + name + " " + iUserScore + " VS " + " Computer " + iComScore);
+                    System.out.println("Счет по очкам: " + name + " " +
+                            iUserScore + " | " + iComScore + " Computer");
                 } else if (iComTurn == 3) {
                     System.out.println("Компютер выбрал: Бумагу.");
                     System.out.println(name + ", ты проиграл этот раунд!");
                     iComScore++;
-                    System.out.println("Счет по очкам: " + name + " " + iUserScore + " VS " + " Computer " + iComScore);
+                    System.out.println("Счет по очкам: " + name + " " +
+                            iUserScore + " | " + iComScore + " Computer");
                 }
             } else if (iUserTurn == 2) {
                 if (iComTurn == 3) {
                     System.out.println("Компютер выбрал: Бумагу.");
                     System.out.println(name + "," + " поздравляю, ты выйграл этот раунд!");
                     iUserScore++;
-                    System.out.println("Счет по очкам: " + name + " " + iUserScore + " VS " + " Computer " + iComScore);
+                    System.out.println("Счет по очкам: " + name + " " +
+                            iUserScore + " | " + iComScore + " Computer");
                 } else if (iComTurn == 1) {
                     System.out.println("Компютер выбрал: Камень.");
                     System.out.println(name + ", ты проиграл этот раунд!");
                     iComScore++;
-                    System.out.println("Счет по очкам: " + name + " " + iUserScore + " VS " + " Computer " + iComScore);
+                    System.out.println("Счет по очкам: " + name + " " +
+                            iUserScore + " | " + iComScore + " Computer");
                 }
 
             } else if (iUserTurn == 3) {
@@ -61,21 +72,20 @@ class GameLogic extends Field {
                     System.out.println("Компютер выбрал: Камень.");
                     System.out.println(name + "," + " поздравляю, ты выйграл этот раунд!");
                     iUserScore++;
-                    System.out.println("Счет по очкам: " + name + " " + iUserScore + " VS " + " Computer " + iComScore);
+                    System.out.println("Счет по очкам: " + name + " " +
+                            iUserScore + " | " + iComScore + " Computer");
                 } else if (iComTurn == 2) {
                     System.out.println("Компютер выбрал: Ножницы.");
                     System.out.println(name + ", ты проиграл этот раунд!");
                     iComScore++;
-                    System.out.println("Счет по очкам: " + name + " " + iUserScore + " VS " + " Computer " + iComScore);
+                    System.out.println("Счет по очкам: " + name + " " +
+                            iUserScore + " | " + iComScore + " Computer");
                 }
 
             }
-            if (iUserScore == 3) {
-                System.out.println("Поздравляю " + name + " " + "!" + " Ты выйграл эту игру.");
-                counter++;
-            }
-            if (iComScore == 3) {
-                System.out.println("К сожелению " + name + " " + "," + " Ты проиграл эту игру.");
+            if (iUserScore == 3 || iComScore == 3) {
+                System.out.println("Игра окончена! \n" + name + " " +
+                        iUserScore + " | " + iComScore + " Computer");
                 counter++;
             }
         }
